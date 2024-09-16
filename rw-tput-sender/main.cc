@@ -1,6 +1,7 @@
 #include <gflags/gflags.h>
 #include <limits>
 #include <thread>
+#include <array>
 #include "libhrd_cpp/hrd.h"
 
 static constexpr size_t kAppNumQPs = 1;
