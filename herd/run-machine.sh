@@ -5,7 +5,7 @@ function blue() {
 	echo "${es}$1${ee}"
 }
 
-export HRD_REGISTRY_IP="10.113.1.47"
+export HRD_REGISTRY_IP="10.1.1.3"
 export MLX5_SINGLE_THREADED=1
 export MLX4_SINGLE_THREADED=1
 
@@ -22,7 +22,7 @@ num_threads=14		# Threads per client machine
 
 blue "Running $num_threads client threads"
 
-sudo LD_LIBRARY_PATH=/usr/local/lib/ -E \
+LD_LIBRARY_PATH=/usr/local/lib/ \
 	numactl --cpunodebind=0 --membind=0 ./main \
 	--num-threads $num_threads \
 	--base-port-index 0 \
