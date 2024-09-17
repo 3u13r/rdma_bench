@@ -9,6 +9,11 @@ export HRD_REGISTRY_IP="10.1.1.3"
 export MLX5_SINGLE_THREADED=1
 export MLX4_SINGLE_THREADED=1
 
+
+bash -c "echo kernel.shmmax = 9223372036854775807 >> /etc/sysctl.conf"
+bash -c "echo kernel.shmall = 1152921504606846720 >> /etc/sysctl.conf"
+sysctl -p /etc/sysctl.conf
+
 blue "Removing SHM key 24 (request region hugepages)"
 ipcrm -M 24
 

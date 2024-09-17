@@ -15,6 +15,10 @@ if [ "$#" -ne 1 ]; then
 	exit
 fi
 
+bash -c "echo kernel.shmmax = 9223372036854775807 >> /etc/sysctl.conf"
+bash -c "echo kernel.shmall = 1152921504606846720 >> /etc/sysctl.conf"
+sysctl -p /etc/sysctl.conf
+
 blue "Removing hugepages"
 shm-rm.sh 1>/dev/null 2>/dev/null
 
